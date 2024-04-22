@@ -344,6 +344,11 @@
         (setq seoul256-current-bg dark-bg)
       (setq seoul256-current-bg light-bg))
 
+    (if (member theme custom-enabled-themes)
+        (let ((custom--inhibit-theme-enable nil))
+          (cherry-seoul256-apply theme style dark-fg light-fg dark-bg light-bg))
+      (cherry-seoul256-apply theme style dark-fg light-fg dark-bg light-bg)
+      
     (seoul256-apply theme style dark-fg light-fg dark-bg light-bg)))
 
 (defun seoul256-switch-background ()
